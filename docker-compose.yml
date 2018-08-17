@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:9.6
+    container_name: 'alexandria_db'
+    ports:
+      - '5432:5432'
