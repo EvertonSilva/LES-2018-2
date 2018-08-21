@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Alexandria | Bibliotecas</title>
+		<link rel="stylesheet" href="vendor/css/normalize.css">
+		<style>
+			body {
+				background-color: #fcfcfc;
+				color: #333;
+				font-family: "Helvetica", sans-serif;
+			}
+			form label {
+				display: block;
+			}
+			form input,
+			form textarea {
+				margin: 5px 0 15px 0;
+				width: 100%;
+			}
+			#app {
+				margin: 0 auto;
+				width: 95%;
+			}
+			.title--search {
+				display: inline-block;
+				padding-right: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1>Cadastro de livro</h1>
+			<section id="data-search" class="search">
+				<h3 class="title--search">Busca</h3>
+				<input type="text" placeholder="Título do livro">
+				<button id="search-btn">Pesquisar!</button>
+			</section>
+			<section id="data-list">
+				<h3>Lista de livros</h3>
+				<div id="data-table"></div>
+			</section>
+			<section>
+				<h3>Adicionar novo</h3>
+				<form action="#" id="book-form">
+					<div>
+						<label for="title">Título</label>
+						<input type="text">
+					</div>
+					<div>
+						<label for="isbn">ISBN</label>
+						<input type="text">
+					</div>
+					<div>
+						<label for="ano">Ano</label>
+						<input type="text">
+					</div>
+					<div>
+						<label for="edition">Edição</label>
+						<input type="number" min="1">
+					</div>
+					<div>
+						<label for="subject">Assunto</label>
+						<input type="text">
+					</div>
+					<div>
+						<label for="publisher">Editora</label>
+						<input type="text">
+					</div>
+					<div>
+						<label for="shelfNumber">Número de chamada</label>
+						<input type="text">
+					</div>
+					<div>
+						<label for="copy">Número de exemplares</label>
+						<input type="number" min="1">
+					</div>
+					<div>
+						<label for="synopsis">Sinópse</label>
+						<textarea id="" cols="30" rows="10"></textarea>
+					</div>
+					<button id="add-btn">Adicionar</button>
+				</form>
+			</section>
+		</div>
+		<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			(function($) {
+				$("#search-btn").on('click', function(event) {
+					$.ajax({
+						url: "http://arch-deathstar:8082/books",
+					}).done(function(data) {
+						if(data) {
+							tpl = data.content.map(function(book) {
+								return '<h4>' + book.title + '</h4>';
+							});
+							$("#data-table").append(tpl);
+						} else {
+							$("#data-table").text("Não foi encontrado nenhum título");
+						}
+						
+					});
+				});
+				$("#book-form").on('submit', function(event) {
+					event.preventDefault();
+					console.log($(this).serialize());
+					// $.ajax({
+					// 	url: "http://arch-deathstar:8082/books",
+					// 	method: "POST"
+					// });
+				});
+			} (jQuery));
+		</script>
+	</body>
+</html>

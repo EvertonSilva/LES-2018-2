@@ -15,6 +15,39 @@ public class Book extends DomainEntity {
 	@Size(min = 6, max = 100)
 	private String title;
 	
+	@Column
+	@NotBlank
+	@Size(min = 4, max = 4)
+	private String year;
+	
+	@Column
+	@NotBlank
+	private String publisher;
+	
+	@Column
+	@NotBlank
+	private String edition;
+	
+	@Column
+	@NotBlank
+	private String shelfNumber;
+	
+	@Column
+	@NotBlank
+	private String subject;
+	
+	@Column(columnDefinition = "text")
+	@NotBlank
+	private String synopsis;
+	
+	@Column
+	@NotBlank
+	@Size(min = 10, max = 13)
+	private String isbn;
+	
+	private Integer copy;
+	
+	
 	public Book() {}
 
 	public String getTitle() {
@@ -24,5 +57,71 @@ public class Book extends DomainEntity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getEdition() {
+		return edition;
+	}
+
+	public void setEdition(String edition) {
+		this.edition = edition;
+	}
+
+	public String getShelfNumber() {
+		return shelfNumber;
+	}
+
+	public void setShelfNumber(String shelfNumber) {
+		this.shelfNumber = shelfNumber;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public Integer getCopy() {
+		return copy;
+	}
+
+	public void setCopy(Integer copy) {
+		this.copy = copy;
+	}
+	
+	
 
 }
