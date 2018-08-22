@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Alexandria | Bibliotecas</title>
-		<link rel="stylesheet" href="vendor/css/normalize.css">
+		<!-- <link rel="stylesheet" href="vendor/css/normalize.css"> -->
 		<style>
 			body {
 				background-color: #fcfcfc;
@@ -12,6 +12,7 @@
 			}
 			form label {
 				display: block;
+
 			}
 			form input,
 			form textarea {
@@ -33,53 +34,56 @@
 			<h1>Cadastro de livro</h1>
 			<section id="data-search" class="search">
 				<h3 class="title--search">Busca</h3>
-				<input type="text" placeholder="Título do livro">
+				<input type="text" id="search-field" name="search-field" placeholder="Código do livro">
 				<button id="search-btn">Pesquisar!</button>
 			</section>
+			<!--
 			<section id="data-list">
 				<h3>Lista de livros</h3>
 				<div id="data-table"></div>
 			</section>
+			 -->
 			<section>
 				<h3>Adicionar novo</h3>
 				<form action="#" id="book-form">
 					<div>
 						<label for="title">Título</label>
-						<input type="text">
+						<input type="text" id="title" name="title">
 					</div>
 					<div>
 						<label for="isbn">ISBN</label>
-						<input type="text">
+						<input type="text" id="isbn" name="isbn">
 					</div>
 					<div>
 						<label for="ano">Ano</label>
-						<input type="text">
+						<input type="text" id="year" name="year">
 					</div>
 					<div>
 						<label for="edition">Edição</label>
-						<input type="number" min="1">
+						<input type="number" min="1" id="edition" name="edition">
 					</div>
 					<div>
 						<label for="subject">Assunto</label>
-						<input type="text">
+						<input type="text" id="subject" name="subject">
 					</div>
 					<div>
 						<label for="publisher">Editora</label>
-						<input type="text">
+						<input type="text" id="publisher" name="publisher">
 					</div>
 					<div>
 						<label for="shelfNumber">Número de chamada</label>
-						<input type="text">
+						<input type="text" id="shelfNumber" name="shelfNumber">
 					</div>
 					<div>
 						<label for="copy">Número de exemplares</label>
-						<input type="number" min="1">
+						<input type="number" min="1" id="copy" name="copy">
 					</div>
 					<div>
-						<label for="synopsis">Sinópse</label>
-						<textarea id="" cols="30" rows="10"></textarea>
+						<label for="synopsis">Sinopse</label>
+						<textarea id="synopsis" name="synopsis" cols="30" rows="10"></textarea>
 					</div>
-					<button id="add-btn">Adicionar</button>
+					<button type="submit" id="form-button" data-method="post">Adicionar</button>
+					<input type="hidden" id="book-id" />
 				</form>
 			</section>
 		</div>
@@ -91,26 +95,42 @@
 			(function($) {
 				$("#search-btn").on('click', function(event) {
 					$.ajax({
-						url: "http://arch-deathstar:8082/books",
-					}).done(function(data) {
-						if(data) {
-							tpl = data.content.map(function(book) {
-								return '<h4>' + book.title + '</h4>';
-							});
-							$("#data-table").append(tpl);
+						url: "http://localhost:8082/books/" + $("#search-field").val(),
+					}).done(function(book) {
+						if(book) {
+							$("#book-id").val(book.id);
+							for(var key in book) {
+								let elem = "#"+key;
+								$(elem).val(book[key]);
+							}
+							$("#form-button").data("method", "put").html("Atualizar");
 						} else {
-							$("#data-table").text("Não foi encontrado nenhum título");
+							alert("Não foi encontrado nenhum título");
 						}
 						
 					});
 				});
+				
 				$("#book-form").on('submit', function(event) {
 					event.preventDefault();
-					console.log($(this).serialize());
-					// $.ajax({
-					// 	url: "http://arch-deathstar:8082/books",
-					// 	method: "POST"
-					// });
+					let form = $(this).serializeArray(),
+						data = {};
+						requestMethod = $("#form-button").data('method'),
+						entityId = $("#book-id").val(); 
+
+					$.each(form, function(i, field) {
+						data[field.name] = field.value;
+					});
+
+					$.ajax({
+						url: 'http://localhost:8082/books/' + entityId,
+						method: requestMethod,
+						contentType: 'application/json',
+						data: JSON.stringify(data),
+					}).done(function(data) {
+						console.log(data);
+					});
+					
 				});
 			} (jQuery));
 		</script>

@@ -49,7 +49,7 @@ public class Book extends DomainEntity {
 	
 	
 	public Book() {}
-
+	
 	public String getTitle() {
 		return title;
 	}
