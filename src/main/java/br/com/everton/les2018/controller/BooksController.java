@@ -24,7 +24,7 @@ import br.com.everton.les2018.service.CrudService;
 public class BooksController {
 	
 	@Autowired
-	private CrudService<BookRepository, Book> service;
+	private CrudService<Book> service;
 	
 	
 	@GetMapping("/books")
@@ -33,25 +33,20 @@ public class BooksController {
 	}
 	
 	@GetMapping("/books/{bookId}")
-	public Book getBook(@PathVariable Long bookId) {
+	public Optional<Book> getBook(@PathVariable Long bookId) {
 		return service.getEntity(bookId);
 	}
-	/*
 	
 	@PostMapping("/books")
 	public Book createBook(@Valid @RequestBody Book book) {
-		return repo.save(book);
+		return service.saveEntity(book);
 	}
 	
 	@PutMapping("/books/{bookId}")
 	public Book updateBook(@PathVariable Long bookId,
 							@Valid @RequestBody Book bookRequest) {
-		
-		Book book = repo.findById(bookId).get();
-		bookRequest.setId(book.getId());
-		
-		return repo.saveAndFlush(bookRequest);
+		//bookRequest.setId(bookId);
+		return service.updateEntity(bookRequest);
 		
 	}
-*/
 }
