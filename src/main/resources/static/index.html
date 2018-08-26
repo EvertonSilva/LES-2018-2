@@ -83,7 +83,7 @@
 						<textarea id="synopsis" name="synopsis" cols="30" rows="10"></textarea>
 					</div>
 					<button type="submit" id="form-button" data-method="post">Adicionar</button>
-					<input type="hidden" id="book-id" />
+					<input type="hidden" id="book-id" name="id" />
 				</form>
 			</section>
 		</div>
@@ -98,7 +98,7 @@
 						url: "http://localhost:8082/books/" + $("#search-field").val(),
 					}).done(function(book) {
 						if(book) {
-							$("#book-id").val(book.id);
+							$('input[name="id"]').val(book.id);
 							for(var key in book) {
 								let elem = "#"+key;
 								$(elem).val(book[key]);
@@ -121,6 +121,9 @@
 					$.each(form, function(i, field) {
 						data[field.name] = field.value;
 					});
+
+					console.log("Data sending to server... ");
+					console.table(data);
 
 					$.ajax({
 						url: 'http://localhost:8082/books/' + entityId,
