@@ -17,23 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everton.les2018.model.Book;
 import br.com.everton.les2018.repository.BookRepository;
+import br.com.everton.les2018.service.CrudService;
 
 @CrossOrigin(origins = "http://arch-deathstar:8000")
 @RestController
 public class BooksController {
 	
 	@Autowired
-	private BookRepository repo;
+	private CrudService<BookRepository, Book> service;
+	
 	
 	@GetMapping("/books")
 	public Page<Book> getAllBooks(Pageable pageable) {
-		return repo.findAll(pageable);
+		return service.list(pageable);
 	}
 	
 	@GetMapping("/books/{bookId}")
-	public Optional<Book> getBook(@PathVariable Long bookId) {
-		return repo.findById(bookId);
+	public Book getBook(@PathVariable Long bookId) {
+		return service.getEntity(bookId);
 	}
+	/*
 	
 	@PostMapping("/books")
 	public Book createBook(@Valid @RequestBody Book book) {
@@ -50,5 +53,5 @@ public class BooksController {
 		return repo.saveAndFlush(bookRequest);
 		
 	}
-
+*/
 }
