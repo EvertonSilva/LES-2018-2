@@ -76,7 +76,7 @@ public class Author extends DomainEntity {
 	}
 	
 	@JsonIgnore
-	public String getAuthorFullName() {
+	public String fullName() {
 		return new StringBuilder()
 				.append(this.getLastName())
 				.append(", ")
