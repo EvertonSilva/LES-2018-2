@@ -1,0 +1,44 @@
+<h1>Cadastro de livro</h1>
+<section>
+	<h3>Adicionar novo</h3>
+	<form action="#" id="book-form">
+		<div>
+			<label for="title">Título</label>
+			<input type="text" id="title" name="title">
+		</div>
+		<div>
+			<label for="isbn">ISBN</label>
+			<input type="text" id="isbn" name="isbn">
+		</div>
+		<div>
+			<label for="ano">Ano</label>
+			<input type="text" id="year" name="year">
+		</div>
+		<div>
+			<label for="edition">Edição</label>
+			<input type="number" min="1" id="edition" name="edition">
+		</div>
+		<div>
+			<label for="subject">Assunto</label>
+			<input type="text" id="subject" name="subject">
+		</div>
+		<div>
+			<label for="publisher">Editora</label>
+			<input type="text" id="publisher" name="publisher">
+		</div>
+		<div>
+			<label for="shelfNumber">Número de chamada</label>
+			<input type="text" id="shelfNumber" name="shelfNumber">
+		</div>
+		<div>
+			<label for="copy">Número de exemplares</label>
+			<input type="number" min="1" id="copy" name="copy">
+		</div>
+		<div>
+			<label for="synopsis">Sinopse</label>
+			<textarea id="synopsis" name="synopsis" cols="30" rows="10"></textarea>
+		</div>
+		<button type="submit" id="form-button" data-method="post">Adicionar</button>
+		<input type="hidden" id="book-id" name="id" />
+	</form>
+</section>
