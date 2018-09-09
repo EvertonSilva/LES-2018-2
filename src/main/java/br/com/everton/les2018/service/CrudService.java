@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public abstract class CrudService<E> {
 	
 	@Autowired
-	private JpaRepository<E, Long> repo;
+	protected JpaRepository<E, Long> repo;
 	
 	public Page<E> list(Pageable pageable) {
 		return (Page<E>) repo.findAll(pageable);

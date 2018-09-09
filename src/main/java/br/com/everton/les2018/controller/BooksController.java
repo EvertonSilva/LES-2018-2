@@ -1,5 +1,6 @@
 package br.com.everton.les2018.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -13,20 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everton.les2018.model.Book;
-import br.com.everton.les2018.persistence.repository.BookRepository;
-import br.com.everton.les2018.service.AuthorService;
 import br.com.everton.les2018.service.BookService;
-import br.com.everton.les2018.service.CrudService;
 
 @CrossOrigin(origins = "http://arch-deathstar:8000")
 @RestController
 public class BooksController {
 	
 	@Autowired
-	private CrudService<Book> service;
+	private BookService service;
 	
 	@GetMapping("/books")
 	public Page<Book> getAllBooks(Pageable pageable) {
@@ -36,6 +35,11 @@ public class BooksController {
 	@GetMapping("/books/{bookId}")
 	public Optional<Book> getBook(@PathVariable Long bookId) {
 		return service.getEntity(bookId);
+	}
+	
+	@GetMapping("/books/search")
+	public List<Book> search(@RequestParam(value = "q") String search, Pageable pageable) {
+		return service.searchBookBy(search);
 	}
 	
 	@PostMapping("/books")
