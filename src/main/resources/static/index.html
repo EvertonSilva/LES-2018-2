@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Alexandria | Bibliotecas</title>
+		<title>Alexandria | Sistema de Bibliotecas</title>
 		<!-- <link rel="stylesheet" href="vendor/css/normalize.css"> -->
 		<style>
 			body {
@@ -23,119 +23,63 @@
 				margin: 0 auto;
 				width: 95%;
 			}
-			.title--search {
+			.search-form__title {
 				display: inline-block;
 				padding-right: 5px;
+			}
+			.search-form__field {
+				padding: 0.25%;
+			}
+			
+			.search-results {
+				list-style-type: none;
+			}
+			.search-results li {
+				border-bottom: 1px solid #ccc;
+				padding: 1em 2em;
+				width: 90%;
+			}
+			.search-results li:nth-child(2n) {
+				background-color: #f1f1f1;
+			}
+			.search-results li:nth-child(2n+1) {
+				background-color: #fafafa;
+			}
+			#reserveDate {
+				display: none;
+				margin-top: 15px;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="app">
-			<h1>Cadastro de livro</h1>
-			<section id="data-search" class="search">
-				<h3 class="title--search">Busca</h3>
-				<input type="text" id="search-field" name="search-field" placeholder="Código do livro">
-				<button id="search-btn">Pesquisar!</button>
-			</section>
-			<!--
-			<section id="data-list">
-				<h3>Lista de livros</h3>
-				<div id="data-table"></div>
-			</section>
-			 -->
-			<section>
-				<h3>Adicionar novo</h3>
-				<form action="#" id="book-form">
-					<div>
-						<label for="title">Título</label>
-						<input type="text" id="title" name="title">
-					</div>
-					<div>
-						<label for="isbn">ISBN</label>
-						<input type="text" id="isbn" name="isbn">
-					</div>
-					<div>
-						<label for="ano">Ano</label>
-						<input type="text" id="year" name="year">
-					</div>
-					<div>
-						<label for="edition">Edição</label>
-						<input type="number" min="1" id="edition" name="edition">
-					</div>
-					<div>
-						<label for="subject">Assunto</label>
-						<input type="text" id="subject" name="subject">
-					</div>
-					<div>
-						<label for="publisher">Editora</label>
-						<input type="text" id="publisher" name="publisher">
-					</div>
-					<div>
-						<label for="shelfNumber">Número de chamada</label>
-						<input type="text" id="shelfNumber" name="shelfNumber">
-					</div>
-					<div>
-						<label for="copy">Número de exemplares</label>
-						<input type="number" min="1" id="copy" name="copy">
-					</div>
-					<div>
-						<label for="synopsis">Sinopse</label>
-						<textarea id="synopsis" name="synopsis" cols="30" rows="10"></textarea>
-					</div>
-					<button type="submit" id="form-button" data-method="post">Adicionar</button>
-					<input type="hidden" id="book-id" name="id" />
+			<div class="search-control">
+				<form id="search-form" class="search-form">
+					<h3 class="search-form__title">Busca</h3>
+					<input id="search-field" class="search-form__field" name="q" type="search" placeholder="Pesquisar livro">
+					<button id="search-btn" class="search-form__btn">Pesquisar!</button>
 				</form>
-			</section>
+			</div>
+			
+			<div id="search-result">
+				<h3>Resultados da busca:</h3>
+				<ul class="result-list">
+					<li>
+						<div class="book-copy book-copy--search">
+							<h4 class="book-title">Título do Livro</h4>
+							<p class="book-author">Author: Lorem Ipsum</p>
+							<p class="book-shelf-number">Número de chamada: 882-31 D724m</p>
+							<p class="book-status">Status: DISPONÍVEL</p>
+							<p class="book-location">Localização: Biblioteca CENTRAL</p>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<script
 			  src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
-		<script type="text/javascript">
-			(function($) {
-				$("#search-btn").on('click', function(event) {
-					$.ajax({
-						url: "http://localhost:8082/books/" + $("#search-field").val(),
-					}).done(function(book) {
-						if(book) {
-							$('input[name="id"]').val(book.id);
-							for(var key in book) {
-								let elem = "#"+key;
-								$(elem).val(book[key]);
-							}
-							$("#form-button").data("method", "put").html("Atualizar");
-						} else {
-							alert("Não foi encontrado nenhum título");
-						}
-						
-					});
-				});
-				
-				$("#book-form").on('submit', function(event) {
-					event.preventDefault();
-					let form = $(this).serializeArray(),
-						data = {};
-						requestMethod = $("#form-button").data('method'),
-						entityId = $("#book-id").val(); 
-
-					$.each(form, function(i, field) {
-						data[field.name] = field.value;
-					});
-
-					console.log("Data sending to server... ");
-					console.table(data);
-
-					$.ajax({
-						url: 'http://localhost:8082/books/' + entityId,
-						method: requestMethod,
-						contentType: 'application/json',
-						data: JSON.stringify(data),
-					}).done(function(data) {
-						console.log(data);
-					});
-					
-				});
-			} (jQuery));
-		</script>
+		<script type="text/javascript" src="js/app.js"></script>
 	</body>
 </html>

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everton.les2018.model.Book;
 import br.com.everton.les2018.repository.BookRepository;
+import br.com.everton.les2018.service.AuthorService;
+import br.com.everton.les2018.service.BookService;
 import br.com.everton.les2018.service.CrudService;
 
 @CrossOrigin(origins = "http://arch-deathstar:8000")
@@ -25,7 +27,6 @@ public class BooksController {
 	
 	@Autowired
 	private CrudService<Book> service;
-	
 	
 	@GetMapping("/books")
 	public Page<Book> getAllBooks(Pageable pageable) {

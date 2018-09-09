@@ -8,11 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import br.com.everton.les2018.model.DomainEntity;
-
-
 @Service
-public class CrudService<E> {
+public abstract class CrudService<E> {
 	
 	@Autowired
 	private JpaRepository<E, Long> repo;
