@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everton.les2018.model.Book;
-import br.com.everton.les2018.repository.BookRepository;
+import br.com.everton.les2018.persistence.repository.BookRepository;
 import br.com.everton.les2018.service.AuthorService;
 import br.com.everton.les2018.service.BookService;
 import br.com.everton.les2018.service.CrudService;
