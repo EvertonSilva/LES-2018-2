@@ -1,4 +1,4 @@
-package br.com.everton.les2018.persistence.repository;
+package br.com.everton.les2018.persistence;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ import static org.springframework.data.jpa.domain.Specification.where;
 import br.com.everton.les2018.model.Book;
 
 @Component
-public class BookSpecification {
+public class BookSpecification extends BaseSpecification<Book> {
 	
 	public Specification<Book> getFilter(String search) {
 		return where(titleContains(search));
@@ -26,12 +26,6 @@ public class BookSpecification {
 			
 			return cb.like(cb.lower(root.get(attribute)), containsLowerCase(value));
 		};
-	}
-	
-	private String containsLowerCase(String searchField) {
-		String wildcard = "%";
-		
-		return wildcard + searchField.toLowerCase() + wildcard;
 	}
 
 }

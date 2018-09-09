@@ -1,5 +1,6 @@
 package br.com.everton.les2018.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ public abstract class CrudService<E> {
 	
 	@Autowired
 	protected JpaRepository<E, Long> repo;
+	
 	
 	public Page<E> list(Pageable pageable) {
 		return (Page<E>) repo.findAll(pageable);
@@ -29,4 +31,6 @@ public abstract class CrudService<E> {
 	public E updateEntity(E entity) {
 		return repo.saveAndFlush(entity);
 	}
+	
+	public abstract List<E> searchBookBy(String filter);
 }
