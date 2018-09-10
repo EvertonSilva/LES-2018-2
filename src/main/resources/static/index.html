@@ -54,7 +54,7 @@
 	<body>
 		<div id="app">
 			<div class="search-control">
-				<form id="search-form" class="search-form">
+				<form id="search-form" class="search-form" action="books/search">
 					<h3 class="search-form__title">Busca</h3>
 					<input id="search-field" class="search-form__field" name="q" type="search" placeholder="Pesquisar livro">
 					<button id="search-btn" class="search-form__btn">Pesquisar!</button>
@@ -64,22 +64,37 @@
 			<div id="search-result">
 				<h3>Resultados da busca:</h3>
 				<ul class="result-list">
-					<li>
-						<div class="book-copy book-copy--search">
-							<h4 class="book-title">Título do Livro</h4>
-							<p class="book-author">Author: Lorem Ipsum</p>
-							<p class="book-shelf-number">Número de chamada: 882-31 D724m</p>
-							<p class="book-status">Status: DISPONÍVEL</p>
-							<p class="book-location">Localização: Biblioteca CENTRAL</p>
-						</div>
-					</li>
+					<script type="text/template" id="result-list-tmpl">
+					<% _.each(bookList, function(book) { %>
+						<li class="result-item">
+							<div class="book-copy book-copy--search">
+								<h4 class="book-title"><%- book.title %></h4>
+								<p class="book-author">
+									Author: <%- book.authors[0].lastName %>,
+										<%- book.authors[0].name %>
+										<% if (book.authors[0].middleName) { %>
+											<%- book.authors[0].middleName[0] %>.
+										<% } %>
+								</p>
+								<h5>Exemplares</h5>
+								<ul>
+									<% _.each(book.exemplars, function(exemplar) { %>
+										<li>
+											<p>Número do exemplar: <%- exemplar.number %></p>
+											<p>Status: <%- exemplar.status %></p>
+											
+										</li>
+									<% }); %>
+								</ul>
+							</div>
+						</li>
+					<% }); %>
+					</script>
 				</ul>
 			</div>
 		</div>
-		<script
-			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
+		<script type="text/javascript" src="vendor/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="vendor/js/underscore.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 	</body>
 </html>

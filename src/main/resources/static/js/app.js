@@ -1,20 +1,22 @@
+'use strict';
+
 (function($) {
 	
-	$("#search-btn").on('click', function(event) {
+	let template = _.template($('#result-list-tmpl').html());
+
+	
+	$("#search-form").on('submit', function(event) {
+		event.preventDefault();
+		let formData = $(this).serialize();
+		
 		$.ajax({
-			url: "http://localhost:8082/books/" + $("#search-field").val(),
-		}).done(function(book) {
-			if(book) {
-				$('input[name="id"]').val(book.id);
-				for(var key in book) {
-					let elem = "#"+key;
-					$(elem).val(book[key]);
-				}
-				$("#form-button").data("method", "put").html("Atualizar");
-			} else {
-				alert("Não foi encontrado nenhum título");
+			url: "http://localhost:8082/books/search?"+formData,
+		}).done(function(data) {
+			if(data) {
+				$('.result-list').html(template({bookList:data}));
 			}
-			
+		}).fail(function(erro) {			
+			console.log(erro);
 		});
 	});
 	
