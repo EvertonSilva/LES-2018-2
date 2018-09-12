@@ -37,5 +37,11 @@ public class Book extends Publication {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+	
+	public boolean isReservable() {
+		return this.getExemplars()
+				.stream().filter(e -> e.getStatus() == ExemplarStatus.AVAILABLE)
+				.count() == 0;
+	}
 
 }

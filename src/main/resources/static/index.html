@@ -19,6 +19,9 @@
 				margin: 5px 0 15px 0;
 				width: 100%;
 			}
+			.hidden {
+				display: none;
+			}
 			#app {
 				margin: 0 auto;
 				width: 95%;
@@ -62,7 +65,6 @@
 			</div>
 			
 			<div id="search-result">
-				<h3>Resultados da busca:</h3>
 				<ul class="result-list">
 					<script type="text/template" id="result-list-tmpl">
 					<% _.each(bookList, function(book) { %>
@@ -70,22 +72,21 @@
 							<div class="book-copy book-copy--search">
 								<h4 class="book-title"><%- book.title %></h4>
 								<p class="book-author">
-									Author: <%- book.authors[0].lastName %>,
+									Author: <%- book.authors[0].lastName.toUpperCase() %>,
 										<%- book.authors[0].name %>
 										<% if (book.authors[0].middleName) { %>
 											<%- book.authors[0].middleName[0] %>.
 										<% } %>
 								</p>
-								<h5>Exemplares</h5>
-								<ul>
-									<% _.each(book.exemplars, function(exemplar) { %>
-										<li>
-											<p>Número do exemplar: <%- exemplar.number %></p>
-											<p>Status: <%- exemplar.status %></p>
-											
-										</li>
-									<% }); %>
-								</ul>
+								<p>Total de exemplares: <%- book.exemplars.length %></p>
+								<p>Disponíveis para empréstimo: <%- book.exemplars.reduce((acc, curr) => { return 'AVAILABLE' == curr.status ? acc + 1 : acc;}, 0) %></p>
+								<p>Acervo permanente: <%- book.exemplars.reduce((acc, curr) => { return 'RESTRICT' == curr.status ? acc + 1 : acc;}, 0) %></p>
+								<p>
+									<% if(book.reservable) { %>
+										<a href="#" id="reserve-action" data-book="<%- book.id %>">RESERVAR</a>
+										<input type="date" class="hidden" id="reserve-date" min="<%- (new Date()).getFullYear() %>-<%- (new Date()).getMonth()+1 %>-<%- (new Date()).getDate() %>">
+									<% } %>
+								</p>
 							</div>
 						</li>
 					<% }); %>

@@ -76,14 +76,17 @@ public class Author extends DomainEntity {
 	}
 	
 	@JsonIgnore
-	public String fullName() {
-		return new StringBuilder()
-				.append(this.getLastName())
-				.append(", ")
-				.append(this.getMiddleName().substring(0, 1).toUpperCase())
-				.append(" ")
-				.append(this.getName())
-				.toString();
+	public String getFullName() {
+		String middleNameInitial = "";
+		String fullName;
+		
+		if(!this.middleName.isEmpty() || !(this.middleName == null)) {
+			middleNameInitial = this.getMiddleName().substring(0, 1).toUpperCase();
+		}
+		
+		fullName = this.getLastName() + ", " + this.getName() + " " + middleNameInitial;
+		
+		return fullName;
 	}
 
 }

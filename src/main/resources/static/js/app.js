@@ -45,15 +45,9 @@
 		
 	});
 	
-	$('#reserveBtnAction').on('click', function(event) {
+	$('#search-result').on('click', '#reserve-action', function(event) {
 		event.preventDefault();
-		$('#reserveDate').slideToggle()
-						.on('change', function(event) {
-							alert('Reserva efetuada');
-							if($(this).is(':visible')) {
-								$(this).slideUp();
-							}
-						});
+		$('#reserve-date').slideToggle();
 	});
 	
 	
