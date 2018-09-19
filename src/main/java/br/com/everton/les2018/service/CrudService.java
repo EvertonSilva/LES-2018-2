@@ -18,11 +18,11 @@ public abstract class CrudService<E> {
 	
 	
 	public Page<E> list(Pageable pageable) {
-		return (Page<E>) repo.findAll(pageable);
+		return (Page<E>) repo.findByEnabledTrue(pageable);
 	}
 	
 	public Optional<E> getEntity(Long entityId) {
-		return (Optional<E>) repo.findById(entityId);
+		return (Optional<E>) repo.findByIdAndEnabledTrue(entityId);
 	}
 	
 	public E saveEntity(E entity) {

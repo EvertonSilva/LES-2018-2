@@ -62,5 +62,13 @@ public abstract class DomainEntity implements Serializable {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	public boolean getEnabled() {
+		return this.enabled;
+	}
+	
+	public void serEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 
 }
