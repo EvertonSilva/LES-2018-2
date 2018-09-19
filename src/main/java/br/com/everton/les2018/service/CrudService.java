@@ -6,14 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
+import br.com.everton.les2018.persistence.repository.JpaSpecificationRepository;
 
 @Service
 public abstract class CrudService<E> {
 	
 	@Autowired
-	protected JpaRepository<E, Long> repo;
+	protected JpaSpecificationRepository<E, Long> repo;
 	
 	
 	public Page<E> list(Pageable pageable) {
@@ -32,5 +33,5 @@ public abstract class CrudService<E> {
 		return repo.saveAndFlush(entity);
 	}
 	
-	public abstract List<E> searchBookBy(String filter);
+	public abstract List<E> searchBy(String filter);
 }

@@ -10,7 +10,7 @@ import br.com.everton.les2018.model.Author;
 public class AuthorService extends CrudService<Author> {
 
 	@Override
-	public List<Author> searchBookBy(String filter) {
+	public List<Author> searchBy(String filter) {
 		// TODO Auto-generated method stub
 		return null;
 	}

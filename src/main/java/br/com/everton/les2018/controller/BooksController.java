@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.everton.les2018.model.Book;
 import br.com.everton.les2018.service.BookService;
 
-@CrossOrigin(origins = "http://arch-deathstar:8000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class BooksController {
 	
@@ -39,7 +39,7 @@ public class BooksController {
 	
 	@GetMapping("/books/search")
 	public List<Book> search(@RequestParam(value = "q") String search, Pageable pageable) {
-		return service.searchBookBy(search);
+		return service.searchBy(search);
 	}
 	
 	@PostMapping("/books")
