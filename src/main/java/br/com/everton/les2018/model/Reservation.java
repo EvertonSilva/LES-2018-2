@@ -5,7 +5,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reservations")
-public class Reserve extends LibraryTransaction {
+public class Reservation extends LibraryTransaction {
 
 	private static final long serialVersionUID = 1L;
 	
