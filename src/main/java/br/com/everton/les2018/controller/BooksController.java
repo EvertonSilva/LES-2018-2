@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,14 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everton.les2018.model.Book;
-import br.com.everton.les2018.service.BookService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class BooksController {
-	
-	@Autowired
-	private BookService service;
+public class BooksController extends BaseController<Book> {
 	
 	@GetMapping("/books")
 	public Page<Book> getAllBooks(Pageable pageable) {
