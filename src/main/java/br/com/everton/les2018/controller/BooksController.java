@@ -33,8 +33,8 @@ public class BooksController extends BaseController<Book> {
 	}
 	
 	@GetMapping("/books/search")
-	public List<Book> search(@RequestParam(value = "q") String search, Pageable pageable) {
-		return service.searchBy(search);
+	public List<Book> search(@RequestParam(value = "q") String query, Pageable pageable) {
+		return service.searchBy(query);
 	}
 	
 	@PostMapping("/books")
