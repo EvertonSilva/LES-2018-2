@@ -2,14 +2,14 @@
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class DateRange {
 	
-	private LocalDateTime startDate;
-	
-	private LocalDateTime endDate;
+	private LocalDateTime startDate = null;
+	private LocalDateTime endDate= null;
 
 	public LocalDateTime getStartDate() {
 		return startDate;
@@ -30,5 +30,17 @@ public class DateRange {
 	public long getDaysRemaining() {
 		Duration duration = Duration.between(startDate, endDate);
 		return duration.toDays();
+	}
+	
+	public boolean startDateIsAfterEndDate() {
+		return startDate.isAfter(endDate);
+	}
+	
+	public void addDaysTo(String date, Long days) {
+		if("start" == date) {
+			startDate.plusDays(days);
+		} else {
+			endDate.plusDays(days);
+		}
 	}
 }

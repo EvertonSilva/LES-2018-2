@@ -9,7 +9,11 @@ import br.com.everton.les2018.model.Reservation;
 
 @Service
 public class ReservationService extends CrudService<Reservation> {
-
+	
+	public ReservationService() {
+		super.entityName = "reservation";
+	}
+	
 	@Override
 	public List<Reservation> searchBy(String filter) {
 		return Collections.emptyList();

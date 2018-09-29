@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.com.everton.les2018.business.ISaveRules;
+import br.com.everton.les2018.business.IListRules;
 import br.com.everton.les2018.persistence.repository.JpaSpecificationRepository;
 
 @Service
@@ -19,7 +19,10 @@ public abstract class CrudService<E> {
 	protected JpaSpecificationRepository<E, Long> repo;
 	
 	@Autowired
-	private Map<String, ISaveRules<E>> rules;
+	private Map<String, IListRules<E>> rulesByEntity;
+	
+	private String context;
+	protected String entityName;
 	
 	
 	public Page<E> list(Pageable pageable) {
@@ -31,7 +34,8 @@ public abstract class CrudService<E> {
 	}
 	
 	public E saveEntity(E entity) {
-		executeRules(entity, "save");
+		this.context = "SAVE";
+		this.executeRules(entity);
 		return repo.save(entity);
 	}
 	
@@ -39,13 +43,19 @@ public abstract class CrudService<E> {
 		return repo.saveAndFlush(entity);
 	}
 	
+	public String getEntityName() {
+		return this.entityName;
+	}
+	
+	public void setEntityName(String entityName) {
+		this.entityName = entityName;
+	}
+	
+	
 	public abstract List<E> searchBy(String filter);
 	
-	private void executeRules(E entity, String operation) {
-		String entityName = entity.getClass().getSimpleName().toLowerCase();
-		String key = operation.toLowerCase().concat("_").concat(entityName);
-		
-		rules.get(key).getSaveRules().forEach(str -> {
+	private void executeRules(E entity) {
+		rulesByEntity.get(this.entityName).getRules(this.context).forEach(str -> {
 			str.process(entity);
 		});
 	}

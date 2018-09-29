@@ -38,10 +38,10 @@ public class Book extends Publication {
 		this.isbn = isbn;
 	}
 	
-	public boolean isReservable() {
+	/*public boolean isReservable() {
 		return this.getExemplars()
 				.stream().filter(e -> e.getStatus() == ExemplarStatus.AVAILABLE)
 				.count() == 0;
-	}
+	}*/
 
 }

@@ -16,6 +16,7 @@ import br.com.everton.les2018.model.Reservation;
 @RestController
 public class ReservationsController extends BaseController<Reservation> {
 	
+	
 	@GetMapping("/reservations")
 	public Page<Reservation> getAllReservations(Pageable pageable) {
 		return service.list(pageable);

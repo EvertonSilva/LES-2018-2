@@ -14,6 +14,10 @@ public class BookService extends CrudService<Book> {
 	@Autowired
 	private BookSpecification bookSpecification;
 	
+	public BookService() {
+		super.entityName = "book";
+	}
+	
 	@Override
 	public List<Book> searchBy(String filter) {
 		return repo.findAll(bookSpecification.getFilter(filter));
