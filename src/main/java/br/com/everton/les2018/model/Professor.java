@@ -5,15 +5,5 @@ import javax.persistence.Entity;
 @Entity
 public class Professor extends UserRole {
 	
-	private String roleName = "Professor";
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-	
 	
 }
