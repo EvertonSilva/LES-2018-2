@@ -1,6 +1,13 @@
 package br.com.everton.les2018.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -8,14 +15,12 @@ public class User {
 	private String username;
 	private String idDocument;
 	private String password;
-	private UserRole role;
 	
-	public UserRole getRole() {
-		return role;
-	}
-	public void setRole(UserRole role) {
-		this.role = role;
-	}
+	@OneToMany(fetch = FetchType.EAGER,
+			cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private Set<UserRole> roles = new HashSet<>();
+	
 	public String getUsername() {
 		return username;
 	}
@@ -33,6 +38,12 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Set<UserRole> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<UserRole> roles) {
+		this.roles = roles;
 	}
 	
 	
