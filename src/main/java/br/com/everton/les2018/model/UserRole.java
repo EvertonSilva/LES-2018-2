@@ -6,8 +6,9 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class UserRole {
+public abstract class UserRole extends DomainEntity {
 	
+	private static final long serialVersionUID = 1L;
 	private int loanDays;
 	private int exemplarsAmount;
 	

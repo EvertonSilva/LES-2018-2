@@ -8,10 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-public class User {
+@Table(name = "users")
+public class User extends DomainEntity {
 	
+	private static final long serialVersionUID = 1L;
 	private String username;
 	private String idDocument;
 	private String password;

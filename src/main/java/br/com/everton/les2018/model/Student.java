@@ -4,5 +4,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Student extends UserRole {
+
+	private static final long serialVersionUID = 1L;
 	
 }
