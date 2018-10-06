@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,32 +21,32 @@ import br.com.everton.les2018.model.Book;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/books")
 public class BooksController extends BaseController<Book> {
 	
-	@GetMapping("/books")
+	@GetMapping
 	public Page<Book> getAllBooks(Pageable pageable) {
 		return service.list(pageable);
 	}
 	
-	@GetMapping("/books/{bookId}")
+	@GetMapping("/{bookId}")
 	public Optional<Book> getBook(@PathVariable Long bookId) {
 		return service.getEntity(bookId);
 	}
 	
-	@GetMapping("/books/search")
+	@GetMapping("/search")
 	public List<Book> search(@RequestParam(value = "q") String query, Pageable pageable) {
 		return service.searchBy(query);
 	}
 	
-	@PostMapping("/books")
+	@PostMapping
 	public Book createBook(@Valid @RequestBody Book book) {
 		return service.saveEntity(book);
 	}
 	
-	@PutMapping("/books/{bookId}")
+	@PutMapping("/{bookId}")
 	public Book updateBook(@PathVariable Long bookId,
 							@Valid @RequestBody Book bookRequest) {
-		//bookRequest.setId(bookId);
 		return service.updateEntity(bookRequest);
 		
 	}
