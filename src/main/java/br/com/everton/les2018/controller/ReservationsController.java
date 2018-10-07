@@ -24,6 +24,7 @@ public class ReservationsController extends BaseController<Reservation> {
 	
 	@PostMapping("/reservations")
 	public Reservation createReservation(@Valid @RequestBody Reservation reservation) {
+		reservation.setUser(currentUser());
 		return service.saveEntity(reservation);
 	}
 }
