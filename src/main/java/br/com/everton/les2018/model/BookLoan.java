@@ -17,7 +17,7 @@ public class BookLoan extends LibraryTransaction {
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(fetch = FetchType.EAGER,
-				cascade = CascadeType.ALL)
+				cascade = {CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "loan_id")	
 	private Set<Book> bookList = new HashSet<>();
 
