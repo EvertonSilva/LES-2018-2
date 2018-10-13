@@ -19,22 +19,22 @@ public class BookLoan extends LibraryTransaction {
 	@OneToMany(fetch = FetchType.EAGER,
 				cascade = {CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "loan_id")	
-	private Set<Book> bookList = new HashSet<>();
+	private Set<Exemplar> exemplarList = new HashSet<>();
 
-	public Set<Book> getBookList() {
-		return bookList;
+	public Set<Exemplar> getBookList() {
+		return exemplarList;
 	}
 
-	public void setBookList(Set<Book> bookList) {
-		this.bookList = bookList;
+	public void setBookList(Set<Exemplar> exemplarList) {
+		this.exemplarList = exemplarList;
 	}
 	
-	public void addBook(Book book) {
-		this.bookList.add(book);
+	public void addBook(Exemplar exemplar) {
+		this.exemplarList.add(exemplar);
 	}
 	
-	public void removeBook(Book book) {
-		this.bookList.remove(book);
+	public void removeBook(Exemplar exemplar) {
+		this.exemplarList.remove(exemplar);
 	}
 
 }
