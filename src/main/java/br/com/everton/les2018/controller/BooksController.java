@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everton.les2018.model.Book;
+import br.com.everton.les2018.service.BookService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -37,6 +38,11 @@ public class BooksController extends BaseController<Book> {
 	@GetMapping("/search")
 	public List<Book> search(@RequestParam(value = "q") String query, Pageable pageable) {
 		return service.searchBy(query);
+	}
+	
+	@GetMapping("/exemplars")
+	public Optional<Book> getBookByShelfNumber(@RequestParam(value = "shelf-number") String shelfNumber) {
+		return ((BookService)service).getByShelfNumber(shelfNumber);
 	}
 	
 	@PostMapping
