@@ -25,7 +25,14 @@ public class BookService extends CrudService<Book> {
 	}
 	
 	public Optional<Book> getByShelfNumber(String shelfNumber) {
-		return repo.findOne(bookSpecification.bookForShelfNumber(shelfNumber));
+		// find book by exemplar shelf number
+		Optional<Book> optBook = repo.findOne(bookSpecification.bookForShelfNumber(shelfNumber));
+		Book b = optBook.get();
+	
+		// filter exemplars list
+		b.getExemplars().removeIf(e -> !e.getShelfNumber().equals(shelfNumber));
+		
+		return optBook;
 	}
 	
 }
