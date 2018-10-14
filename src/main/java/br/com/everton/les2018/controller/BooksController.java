@@ -40,8 +40,8 @@ public class BooksController extends BaseController<Book> {
 		return service.searchBy(query);
 	}
 	
-	@GetMapping("/exemplars")
-	public Optional<Book> getBookByShelfNumber(@RequestParam(value = "shelf-number") String shelfNumber) {
+	@GetMapping("/exemplars/{shelfNumber}")
+	public Optional<Book> getBookByShelfNumber(@PathVariable String shelfNumber) {
 		return ((BookService)service).getByShelfNumber(shelfNumber);
 	}
 	

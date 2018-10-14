@@ -35,50 +35,51 @@ INSERT INTO publications_authors (author_id, publication_id) VALUES (9, 19);
 INSERT INTO publications_authors (author_id, publication_id) VALUES (10, 20);
 
 -- INSERT EXEMPLARS
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 1, '800', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 2, '800', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 3, '800', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 4, '800', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 1, '800D11c1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 2, '800D11c2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 3, '800D11c3', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 11, 4, '800D11c4', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 12, 1, '801', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 12, 2, '801', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 12, 1, '801P8c1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 12, 2, '801P8c2', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 13, 1, '802', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 13, 2, '802', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 13, 3, '802', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 13, 1, '802P12h1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 13, 2, '802P12h2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 13, 3, '802P12h3', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 1, '601', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 2, '601', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 3, '601', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 4, '601', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 1, '601D15d1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 2, '601D15d2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 3, '601D15d3', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 14, 4, '601D15d4', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 15, 1, '500', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 15, 2, '500', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 15, 3, '500', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 15, 1, '500N15e1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 15, 2, '500N15e2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 15, 3, '500N15e3', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 16, 1, '601.1', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 16, 2, '601.1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 16, 1, '601.1G23l1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 16, 2, '601.1G23l2', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 1, '602', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 2, '602', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 3, '602', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 4, '602', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 1, '602F9p1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 2, '602F9p2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 3, '602F9p3', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 17, 4, '602F9p4', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 1, '601.2', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 2, '601.2', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 3, '601.2', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 4, '601.2', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 5, '601.2', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 6, '601.2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 1, '601.2B13t1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 2, '601.2B13t2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 3, '601.2B13t3', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 4, '601.2B13t4', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 5, '601.2B13t5', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 18, 6, '601.2B13t6', true, 0, NOW(), NOW());
 
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 1, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 2, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 3, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 4, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 5, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 6, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 7, '601.3', true, 0, NOW(), NOW());
-INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 20, 1, '100', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 1, '601.3M34c1', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 2, '601.3M34c2', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 3, '601.3M34c3', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 4, '601.3M34c4', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 5, '601.3M34c5', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 6, '601.3M34c6', true, 0, NOW(), NOW());
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 19, 7, '601.3M34c7', true, 0, NOW(), NOW());
+
+INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 20, 1, '100N27h1', true, 0, NOW(), NOW());
 
 INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (1, '455133554', 'aluno@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
 INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (2, '014133445', 'prof@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
