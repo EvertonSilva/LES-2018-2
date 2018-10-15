@@ -81,8 +81,10 @@ INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status
 
 INSERT INTO exemplars (id, publication_id, number, shelf_number, enabled, status, created_at, updated_at) VALUES (NEXTVAL('hibernate_sequence'), 20, 1, '100N27h1', true, 0, NOW(), NOW());
 
+-- INSERT USERS
 INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (1, '455133554', 'aluno@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
 INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (2, '014133445', 'prof@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
 
+-- INSERT ROLES
 INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (1, 1, 'student', 3, 7, true, NOW(), NOW());
 INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (2, 2, 'professor', 5, 14, true, NOW(), NOW());
