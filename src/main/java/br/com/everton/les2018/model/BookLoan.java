@@ -17,15 +17,15 @@ public class BookLoan extends LibraryTransaction {
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(fetch = FetchType.EAGER,
-				cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+				cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "loan_id")	
 	private Set<Exemplar> exemplarList = new HashSet<>();
 
-	public Set<Exemplar> getBookList() {
+	public Set<Exemplar> getExemplarList() {
 		return exemplarList;
 	}
 
-	public void setBookList(Set<Exemplar> exemplarList) {
+	public void setExemplarList(Set<Exemplar> exemplarList) {
 		this.exemplarList = exemplarList;
 	}
 	

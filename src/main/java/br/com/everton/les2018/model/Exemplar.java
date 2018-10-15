@@ -2,7 +2,6 @@ package br.com.everton.les2018.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "exemplars")
@@ -10,12 +9,9 @@ public class Exemplar extends DomainEntity {
 	
 	private static final long serialVersionUID = 1L;
 
-	@NotBlank
-	private int number = 1;
-	
-	@NotBlank
+	private int number;
 	private String shelfNumber;
-	
+
 	private ExemplarStatus status;
 	
 	public int getNumber() {
