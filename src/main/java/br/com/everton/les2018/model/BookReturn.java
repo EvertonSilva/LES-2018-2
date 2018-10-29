@@ -11,38 +11,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "loans")
-public class BookLoan extends LibraryTransaction {
+@Table(name = "book_returns")
+public class BookReturn extends LibraryTransaction {
 
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(fetch = FetchType.EAGER,
-				cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-	@JoinColumn(name = "loan_id")	
+				cascade = {CascadeType.MERGE})
+	@JoinColumn(name = "book_return_id")
 	private Set<Exemplar> exemplarList = new HashSet<>();
-	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "loan_id")
-	private Set<BookReturn> bookReturns = new HashSet<>();
-
-	public Set<BookReturn> getBookReturns() {
-		return bookReturns;
-	}
-
-	public void setBookReturns(Set<BookReturn> bookReturns) {
-		this.bookReturns = bookReturns;
-	}
-	
-	public void addBookReturn(BookReturn bookReturn) {
-		bookReturn.getExemplarList().forEach(e -> {
-			this.exemplarList.removeIf(loanEx -> loanEx.equals(e));
-		});
-		this.bookReturns.add(bookReturn);
-	}
-	
-	public void removeBookReturn(BookReturn bookReturn) {
-		this.bookReturns.remove(bookReturn);
-	}
 
 	public Set<Exemplar> getExemplarList() {
 		return exemplarList;
@@ -59,4 +36,5 @@ public class BookLoan extends LibraryTransaction {
 	public void removeExemplar(Exemplar exemplar) {
 		this.exemplarList.remove(exemplar);
 	}
+
 }

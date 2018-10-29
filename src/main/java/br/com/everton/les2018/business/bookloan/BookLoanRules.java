@@ -19,8 +19,10 @@ public class BookLoanRules implements IListRules<BookLoan> {
 	public BookLoanRules() {
 		this.rules = new HashMap<>();
 		List<IStrategy<BookLoan>> saveRules = new ArrayList<>();
+		List<IStrategy<BookLoan>> returnRules = new ArrayList<>();
 		
 		this.rules.put("SAVE", saveRules);
+		this.rules.put("RETURN", returnRules);
 	}
 
 	@Override
