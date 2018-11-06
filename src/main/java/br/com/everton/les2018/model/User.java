@@ -17,6 +17,7 @@ public class User extends DomainEntity {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String idDocument;
+	@SuppressWarnings("unused")
 	private String password;
 	
 	@OneToMany(fetch = FetchType.EAGER,
@@ -35,9 +36,6 @@ public class User extends DomainEntity {
 	}
 	public void setIdDocument(String idDocument) {
 		this.idDocument = idDocument;
-	}
-	public String getPassword() {
-		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;

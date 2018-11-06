@@ -21,7 +21,7 @@ public abstract class CrudService<E> {
 	@Autowired
 	private Map<String, IListRules<E>> rulesByEntity;
 	
-	private String context;
+	protected String context;
 	protected String entityName;
 	
 	
@@ -40,6 +40,10 @@ public abstract class CrudService<E> {
 	}
 	
 	public E updateEntity(E entity) {
+		if(this.context == null) {
+			this.context = "UPDATE";
+		}
+		this.executeRules(entity);
 		return repo.saveAndFlush(entity);
 	}
 	
