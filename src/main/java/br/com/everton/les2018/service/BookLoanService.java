@@ -50,7 +50,6 @@ public class BookLoanService extends CrudService<BookLoan> {
 		loan.addBookReturn(bookReturn);
 		loan = super.updateEntity(loan);
 		
-		
 		return loan;
 	}
 
