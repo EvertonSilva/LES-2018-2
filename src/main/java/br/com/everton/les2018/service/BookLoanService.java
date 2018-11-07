@@ -22,7 +22,8 @@ public class BookLoanService extends CrudService<BookLoan> {
 	@Autowired
 	private ExemplarRepository exemplarRepo;
 	
-	@Autowired BookReturnRepository bookReturnRepo;
+	@Autowired
+	private BookReturnRepository bookReturnRepo;
 	
 	public BookLoanService() {
 		super.entityName = "bookloan";
