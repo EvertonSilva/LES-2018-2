@@ -15,6 +15,7 @@ import javax.persistence.Table;
 public class BookLoan extends LibraryTransaction {
 
 	private static final long serialVersionUID = 1L;
+	private LoanStatus loanStatus;
 	
 	@OneToMany(fetch = FetchType.EAGER,
 				cascade = {CascadeType.MERGE, CascadeType.REFRESH})
