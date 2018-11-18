@@ -9,7 +9,6 @@ public class Exemplar extends DomainEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-
 	private int number;
 	private String shelfNumber;
 	private ExemplarStatus status;
