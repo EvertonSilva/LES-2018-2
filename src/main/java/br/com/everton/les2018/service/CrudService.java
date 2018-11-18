@@ -40,9 +40,7 @@ public abstract class CrudService<E> {
 	}
 	
 	public E updateEntity(E entity) {
-		if(this.context == null) {
-			this.context = "UPDATE";
-		}
+		this.context = "UPDATE";
 		this.executeRules(entity);
 		return repo.saveAndFlush(entity);
 	}

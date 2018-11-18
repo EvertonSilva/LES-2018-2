@@ -15,7 +15,8 @@ import javax.persistence.Table;
 public class BookLoan extends LibraryTransaction {
 
 	private static final long serialVersionUID = 1L;
-	
+	private LoanStatus loanStatus;
+
 	@OneToMany(fetch = FetchType.EAGER,
 				cascade = {CascadeType.MERGE, CascadeType.REFRESH})
 	@JoinColumn(name = "loan_id")	
@@ -59,4 +60,8 @@ public class BookLoan extends LibraryTransaction {
 	public void removeExemplar(Exemplar exemplar) {
 		this.exemplarList.remove(exemplar);
 	}
+
+	public LoanStatus getLoanStatus() { return loanStatus; }
+
+	public void setLoanStatus(LoanStatus loanStatus) { this.loanStatus = loanStatus; }
 }
