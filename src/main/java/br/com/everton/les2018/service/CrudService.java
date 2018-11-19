@@ -56,7 +56,7 @@ public abstract class CrudService<E> {
 	
 	public abstract List<E> searchBy(String filter);
 	
-	private void executeRules(E entity) {
+	protected void executeRules(E entity) {
 		rulesByEntity.get(this.entityName).getRules(this.context).forEach(str -> {
 			str.process(entity);
 		});

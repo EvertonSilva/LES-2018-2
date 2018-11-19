@@ -43,14 +43,17 @@ public class BookLoanService extends CrudService<BookLoan> {
 		return Collections.emptyList();
 	}
 
+	@Transactional
 	public BookLoan returnBook(Long loanId, @Valid BookReturn bookReturn) {
-		super.context = "RETURN";
 		BookLoan loan = super.getEntity(loanId).get();
 		bookReturn = bookReturnRepo.saveAndFlush(bookReturn);
 		
 		loan.addBookReturn(bookReturn);
+
+		super.context = "RETURN";
+		super.executeRules(loan);
+
 		loan = super.updateEntity(loan);
-		
 		return loan;
 	}
 
