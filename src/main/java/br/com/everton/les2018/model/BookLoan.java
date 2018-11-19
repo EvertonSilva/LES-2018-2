@@ -3,12 +3,7 @@ package br.com.everton.les2018.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "loans")
@@ -17,8 +12,11 @@ public class BookLoan extends LibraryTransaction {
 	private static final long serialVersionUID = 1L;
 	private LoanStatus loanStatus;
 
+	@Transient
+	private BookReturn currentBookReturn;
+
 	@OneToMany(fetch = FetchType.EAGER,
-				cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+				cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name = "loan_id")	
 	private Set<Exemplar> exemplarList = new HashSet<>();
 	
@@ -35,9 +33,7 @@ public class BookLoan extends LibraryTransaction {
 	}
 	
 	public void addBookReturn(BookReturn bookReturn) {
-		bookReturn.getExemplarList().forEach(e -> {
-			this.exemplarList.removeIf(loanEx -> loanEx.equals(e));
-		});
+		this.currentBookReturn = bookReturn;
 		this.bookReturns.add(bookReturn);
 	}
 	
@@ -64,4 +60,12 @@ public class BookLoan extends LibraryTransaction {
 	public LoanStatus getLoanStatus() { return loanStatus; }
 
 	public void setLoanStatus(LoanStatus loanStatus) { this.loanStatus = loanStatus; }
+
+	public BookReturn getCurrentBookReturn() {
+		return currentBookReturn;
+	}
+
+	public void setCurrentBookReturn(BookReturn currentBookReturn) {
+		this.currentBookReturn = currentBookReturn;
+	}
 }
