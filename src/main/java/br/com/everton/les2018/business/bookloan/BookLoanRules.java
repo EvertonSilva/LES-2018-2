@@ -1,9 +1,6 @@
 package br.com.everton.les2018.business.bookloan;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.springframework.stereotype.Component;
 
@@ -19,9 +16,13 @@ public class BookLoanRules implements IListRules<BookLoan> {
 	public BookLoanRules() {
 		this.rules = new HashMap<>();
 		List<IStrategy<BookLoan>> saveRules = new ArrayList<>();
-		List<IStrategy<BookLoan>> returnRules = new ArrayList<>();
+		List<IStrategy<BookLoan>> updateRules = Arrays.asList(
+				new CloseBookLoan(), new SetDelayedStatusToBookLoan());
+		List<IStrategy<BookLoan>> returnRules = Arrays.asList(
+				new ReturnExemplarsToAvailable(), new RemoveReturnedExemplars());
 		
 		this.rules.put("SAVE", saveRules);
+		this.rules.put("UPDATE", updateRules);
 		this.rules.put("RETURN", returnRules);
 	}
 
