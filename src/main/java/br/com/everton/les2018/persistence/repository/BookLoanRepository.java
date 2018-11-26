@@ -14,7 +14,7 @@ public interface BookLoanRepository extends JpaSpecificationRepository<BookLoan,
 
     // SELECT a, b FROM Author a JOIN a.books b
     @Query("select bl from BookLoan bl join bl.user u " +
-            "where u.id = :userId and bl.loanStatus = :status")
+            "where u.id = :userId and bl.loanStatus = :status order by bl.id desc")
     List<BookLoan> findByUser(@Param("userId") Long userId,
                               @Param("status") LoanStatus status);
 }
