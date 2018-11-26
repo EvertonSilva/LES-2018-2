@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
