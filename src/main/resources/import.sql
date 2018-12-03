@@ -59,9 +59,9 @@ INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, ena
 -- INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (3, 3, 'library', 10, 180, true, NOW(), NOW());
 
 -- INSERT LOANS
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (1, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 1, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (2, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 1, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (3, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 1, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (1, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 12, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (2, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 12, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (3, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 12, NOW(), NOW());
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (4, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 2, NOW(), NOW());
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (5, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 2, NOW(), NOW());
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (6, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 2, NOW(), NOW());
@@ -101,7 +101,7 @@ INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, c
 INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, created_at, updated_at) VALUES (6, true, '2018-05-17', '2018-05-17', 8, 26, '2018-05-17', '2018-05-17');
 INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, created_at, updated_at) VALUES (7, true, '2018-07-17', '2018-07-17', 8, 27, '2018-07-17', '2018-07-17');
 INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, created_at, updated_at) VALUES (8, true, '2018-08-17', '2018-08-17', 8, 28, '2018-08-17', '2018-08-17');
-INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, created_at, updated_at) VALUES (9, true, '2018-08-17', '2018-08-17', 9, 29, '2018-08-17', '2018-08 -17');
+INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, created_at, updated_at) VALUES (9, true, '2018-08-17', '2018-08-17', 9, 29, '2018-08-17', '2018-08-17');
 INSERT INTO book_returns (id, enabled, start_date, end_date, user_id, loan_id, created_at, updated_at) VALUES (10, true, '2018-09-17', '2018-09-17', 9, 30, '2018-09-17', '2018-09-17');
 
 -- INSERT EXEMPLARS
