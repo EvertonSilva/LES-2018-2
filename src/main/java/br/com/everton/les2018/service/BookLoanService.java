@@ -1,10 +1,15 @@
 package br.com.everton.les2018.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import br.com.everton.les2018.persistence.ReportDTO;
+import br.com.everton.les2018.persistence.repository.BookLoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +60,24 @@ public class BookLoanService extends CrudService<BookLoan> {
 
 		loan = super.updateEntity(loan);
 		return loan;
+	}
+
+	public List<ReportDTO> loanByBookPerPeriod(String startDate, String endDate) {
+		return ((BookLoanRepository) repo).loansByBookPerPeriod(
+				dateToString(startDate),
+				dateToString(endDate)
+		);
+	}
+
+	private Date dateToString(String dateStr) {
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			return fmt.parse(dateStr);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		return new Date();
 	}
 
 }
