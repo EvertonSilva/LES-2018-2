@@ -23,7 +23,7 @@ public class ValidBookLimit implements IStrategy<BookLoan> {
     public void process(BookLoan entity) {
         final int totalBooksAmount;
         User user = entity.getUser();
-        Set<UserRole> userRoles = user.getRoles();
+        UserRole role = user.getRole();
         List<BookLoan> userLoans = repo.findByUser(user.getId(), LoanStatus.ACTUAL);
 
         // user hasn't loans
@@ -32,10 +32,8 @@ public class ValidBookLimit implements IStrategy<BookLoan> {
         }
 
         totalBooksAmount = countTotal(userLoans);
-        for(UserRole role : userRoles) {
-            if(role.getExemplarsAmount() > totalBooksAmount) { // user didn't reach amount limit?
-                return; // user can borrow a book, just leave.
-            }
+        if(role.getExemplarsAmount() > totalBooksAmount) { // user didn't reach amount limit?
+            return; // user can borrow a book, just leave.
         }
 
         // if code reach this point user can't borrow anymore

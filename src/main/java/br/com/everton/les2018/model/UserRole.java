@@ -1,10 +1,6 @@
 package br.com.everton.les2018.model;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user_roles")
@@ -15,6 +11,13 @@ public abstract class UserRole extends DomainEntity {
 	private static final long serialVersionUID = 1L;
 	private int loanDays;
 	private int exemplarsAmount;
+
+	@Column(name = "role_type", updatable = false, insertable = false)
+	private String rolyType;
+
+	public String getRolyType() {
+		return rolyType;
+	}
 	
 	public int getLoanDays() {
 		return loanDays;
@@ -23,5 +26,5 @@ public abstract class UserRole extends DomainEntity {
 	public int getExemplarsAmount() {
 		return exemplarsAmount;
 	}
-	
+
 }
