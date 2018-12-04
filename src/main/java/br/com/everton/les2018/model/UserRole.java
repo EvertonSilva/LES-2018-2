@@ -9,7 +9,7 @@ import javax.persistence.*;
 public abstract class UserRole extends DomainEntity {
 	
 	private static final long serialVersionUID = 1L;
-	private int loanDays;
+	private double loanDays;
 	private int exemplarsAmount;
 
 	@Column(name = "role_type", updatable = false, insertable = false)
@@ -19,7 +19,7 @@ public abstract class UserRole extends DomainEntity {
 		return roleType;
 	}
 	
-	public int getLoanDays() {
+	public double getLoanDays() {
 		return loanDays;
 	}
 	

@@ -32,7 +32,7 @@ public class LoansController extends BaseController<BookLoan> {
 	
 	@PostMapping
 	public BookLoan createLoan(@Valid @RequestBody BookLoan loan) {
-		loan.setUser(currentUser());
+		//loan.setUser(currentUser());
 		return service.saveEntity(loan);
 	}
 	

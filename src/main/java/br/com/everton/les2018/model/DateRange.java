@@ -27,7 +27,7 @@ public class DateRange {
 		this.endDate = endDate;
 	}
 	
-	public long getDaysRemaining() {
+	public long getDuration() {
 		Duration duration = Duration.between(startDate, endDate);
 		return duration.toDays();
 	}

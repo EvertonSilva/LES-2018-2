@@ -1,5 +1,7 @@
 package br.com.everton.les2018.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,9 +29,7 @@ public class User extends DomainEntity {
 		this.username = username;
 	}
 
-	public String getIdDocument() {
-		return idDocument;
-	}
+	public String getIdDocument() { return idDocument; }
 
 	public void setIdDocument(String idDocument) {
 		this.idDocument = idDocument;
