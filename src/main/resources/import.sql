@@ -34,29 +34,30 @@ INSERT INTO publications_authors (author_id, publication_id) VALUES (8, 18);
 INSERT INTO publications_authors (author_id, publication_id) VALUES (9, 19);
 INSERT INTO publications_authors (author_id, publication_id) VALUES (10, 20);
 
--- INSERT USERS
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (1, '455133554', 'aluno1@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (2, '255121553', 'aluno2@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (3, '342132569', 'aluno3@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (4, '105132258', 'aluno4@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (5, '456900357', 'aluno5@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (6, '490131201', 'aluno6@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, NOW(), NOW()); -- aluno123
-
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (7, '014133441', 'prof1@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (8, '552220912', 'prof2@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (9, '637658983', 'prof3@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (10, '335556664', 'prof4@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (11, '923422565', 'prof5@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
-INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (12, '115121296', 'prof6@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, NOW(), NOW()); -- prof2018
-
--- INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (13, '06.983.217/0001-45', 'library@example.com', '7CAD70B3A3D901FEEE4BC469BC4A59333105AB43DBE52B12648E3D19584B35E1', true, NOW(), NOW()); -- library2018
--- INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (14, '04.583.218/0001-17', 'library@example.com', '7CAD70B3A3D901FEEE4BC469BC4A59333105AB43DBE52B12648E3D19584B35E1', true, NOW(), NOW()); -- library2018
--- INSERT INTO users (id, id_document, username, password, enabled, created_at, updated_at) VALUES (15, '01.724.632/0001-23', 'library@example.com', '7CAD70B3A3D901FEEE4BC469BC4A59333105AB43DBE52B12648E3D19584B35E1', true, NOW(), NOW()); -- library2018
-
 -- INSERT ROLES
-INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (1, 1, 'student', 3, 7, true, NOW(), NOW());
-INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (2, 2, 'professor', 5, 14, true, NOW(), NOW());
--- INSERT INTO user_roles (id, user_id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (3, 3, 'library', 10, 180, true, NOW(), NOW());
+INSERT INTO user_roles (id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (1, 'student', 3, 7, true, NOW(), NOW());
+INSERT INTO user_roles (id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (2, 'professor', 5, 14, true, NOW(), NOW());
+INSERT INTO user_roles (id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (3, 'librarian', 10, 14, true, NOW(), NOW());
+INSERT INTO user_roles (id, role_type, exemplars_amount, loan_days, enabled, created_at, updated_at) VALUES (4, 'libraries', 10, 180, true, NOW(), NOW());
+
+-- INSERT USERS
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (1, '455133554', 'aluno1@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, 1, NOW(), NOW()); -- aluno123
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (2, '255121553', 'aluno2@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, 1, NOW(), NOW()); -- aluno123
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (3, '342132569', 'aluno3@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, 1, NOW(), NOW()); -- aluno123
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (4, '105132258', 'aluno4@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, 1, NOW(), NOW()); -- aluno123
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (5, '456900357', 'aluno5@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, 1, NOW(), NOW()); -- aluno123
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (6, '490131201', 'aluno6@example.com', 'FD5675AE2E933B4070E682938203DCBB978966909CF03F3D9C4F271AD1B3107B', true, 1, NOW(), NOW()); -- aluno123
+
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (7, '014133441', 'prof1@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, 2, NOW(), NOW()); -- prof2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (8, '552220912', 'prof2@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, 2, NOW(), NOW()); -- prof2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (9, '637658983', 'prof3@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, 2, NOW(), NOW()); -- prof2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (10, '335556664', 'prof4@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1',true, 2,  NOW(), NOW()); -- prof2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (11, '923422565', 'prof5@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, 2,  NOW(), NOW()); -- prof2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (12, '115121296', 'prof6@example.com', '0D7D6AD3BAA19059FBBBE395BF16DDC5EA22AA02009BEAEE75B5FAEBC41655C1', true, 2,  NOW(), NOW()); -- prof2018
+
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (13, '06.983.217/0001-45', 'library@example.com', '7CAD70B3A3D901FEEE4BC469BC4A59333105AB43DBE52B12648E3D19584B35E1', true, 4, NOW(), NOW()); -- library2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (14, '04.583.218/0001-17', 'library@example.com', '7CAD70B3A3D901FEEE4BC469BC4A59333105AB43DBE52B12648E3D19584B35E1', true, 4, NOW(), NOW()); -- library2018
+INSERT INTO users (id, id_document, username, password, enabled, user_role_id, created_at, updated_at) VALUES (15, '01.724.632/0001-23', 'library@example.com', '7CAD70B3A3D901FEEE4BC469BC4A59333105AB43DBE52B12648E3D19584B35E1', true, 4, NOW(), NOW()); -- library2018
 
 -- INSERT LOANS
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (1, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 12, NOW(), NOW());
@@ -70,16 +71,16 @@ INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, crea
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (9, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 3, NOW(), NOW());
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (10, true, NOW(), (CURRENT_TIMESTAMP + interval '7 days'), 0, 4, NOW(), NOW());
 
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (11, true, (CURRENT_TIMESTAMP - interval '8 days'), NOW(), 1, 4, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (12, true, (CURRENT_TIMESTAMP - interval '10 days'), NOW(), 1, 4, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (13, true, (CURRENT_TIMESTAMP - interval '12 days'), NOW(), 1, 5, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (14, true, (CURRENT_TIMESTAMP - interval '9 days'), NOW(), 1, 5, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (15, true, (CURRENT_TIMESTAMP - interval '10 days'), NOW(), 1, 5, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (16, true, (CURRENT_TIMESTAMP - interval '10 days'), NOW(), 1, 6, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (17, true, (CURRENT_TIMESTAMP - interval '15 days'), NOW(), 1, 6, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (18, true, (CURRENT_TIMESTAMP - interval '21 days'), NOW(), 1, 6, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (19, true, (CURRENT_TIMESTAMP - interval '30 days'), NOW(), 1, 7, NOW(), NOW());
-INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (20, true, (CURRENT_TIMESTAMP - interval '12 days'), NOW(), 1, 7, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (11, true, '2018-02-5', '2018-02-15', 1, 4, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (12, true, '2018-11-14', '2018-11-24', 1, 4, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (13, true, '2018-03-6', '2018-03-15', 1, 5, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (14, true, '2018-04-8', '2018-04-24',1, 5, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (15, true, '2018-05-7', '2018-05-30', 1, 5, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (16, true, '2018-06-9', '2018-06-17', 1, 6, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (17, true, '2018-08-2', '2018-08-11', 1, 6, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (18, true, '2018-08-3', '2018-08-12', 1, 6, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (19, true, '2018-09-15', '2018-10-01', 1, 7, NOW(), NOW());
+INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (20, true, '2018-09-5', '2018-02-15', 1, 7, NOW(), NOW());
 
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (21, true, '2018-10-10', '2018-10-17', 2, 7, NOW(), NOW());
 INSERT INTO loans (id, enabled, start_date, end_date, loan_status, user_id, created_at, updated_at) VALUES (22, true, '2018-09-10', '2018-09-17', 2, 7, NOW(), NOW());
