@@ -13,10 +13,10 @@ public abstract class UserRole extends DomainEntity {
 	private int exemplarsAmount;
 
 	@Column(name = "role_type", updatable = false, insertable = false)
-	private String rolyType;
+	private String roleType;
 
 	public String getRolyType() {
-		return rolyType;
+		return roleType;
 	}
 	
 	public int getLoanDays() {
