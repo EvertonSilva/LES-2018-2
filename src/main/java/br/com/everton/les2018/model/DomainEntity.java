@@ -66,9 +66,8 @@ public abstract class DomainEntity implements Serializable {
 	public boolean getEnabled() {
 		return this.enabled;
 	}
-	
-	public void serEnabled(Boolean enabled) {
+
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
-
 }

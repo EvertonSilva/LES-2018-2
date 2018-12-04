@@ -2,7 +2,9 @@ package br.com.everton.les2018.business.bookloan;
 
 import br.com.everton.les2018.business.IStrategy;
 import br.com.everton.les2018.model.BookLoan;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RemoveReturnedExemplars implements IStrategy<BookLoan> {
     @Override
     public void process(BookLoan entity) {
